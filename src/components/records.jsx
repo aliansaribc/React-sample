@@ -69,7 +69,7 @@ class Recordsc extends Component {
                                                 <td className="text-center align-middle col-md-1">{[user.postal.slice(0, 3), " ", user.postal.slice(3,6)].join('')}</td>
                                                 <td className="text-center align-middle col-md-1">{[user.phone.slice(0, 3), " ", user.phone.slice(3,6), " ", user.phone.slice(6)].join('')}</td>
                                                 <td className="text-center align-middle col-md-1">
-                                                    <Link to={"/user/" + user.id} className="btn btn-outline-warning btn-sm m-1">edit</Link>
+                                                    <input disabled={!this.state.isLogin} type="submit" value="edit" onClick={this.edituser} id={user.id} className="btn btn-outline-warning btn-sm m-1"></input>
                                                     <input disabled={!this.state.isLogin} type="submit" value="del" onClick={this.deleteuser} id={user.id} className="btn btn-outline-danger btn-sm m-1"></input>
                                                 </td>
                                             </tr>)
@@ -132,7 +132,13 @@ class Recordsc extends Component {
         const res = await axios.delete(url);
         event.target.disabled = false;
         this.setState({users:res.data,dblusers:res.data,isLoading:false});
-    }    
+    }  
+    
+    edituser = (event) => {
+        const id = event.target.id;
+        window.location.href = '/user/' + id;
+    } 
+    
 }
  
 export default Recordsc;
