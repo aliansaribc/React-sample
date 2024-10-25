@@ -130,7 +130,7 @@ class Recordsc extends Component {
         const token = localStorage.getItem('token');
         const url = "https://api.aliansari.net/user/"+id+"?token=" + token;
         const res = await axios.delete(url);
-        event.target.disabled = false;
+        event.target.disabled = false; 
         this.setState({users:res.data,dblusers:res.data,isLoading:false});
     }  
     
