@@ -11,7 +11,7 @@ function App() {
         <Route path='/login' Component={login} />
         <Route path='/user/:id' Component={User} />
         <Route path='/user' Component={User} />
-        <Route path='/' exact Component={Records} />
+        <Route path='/' Component={Records} />
         <Route path='/*' Component={notFound} />
       </Routes>      
     </>    
